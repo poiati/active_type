@@ -4,10 +4,8 @@ module ActiveType
     def cast(object, klass)
       if object.is_a?(ActiveRecord::Relation)
         cast_relation(object, klass)
-      elsif object.is_a?(ActiveRecord::Base)
-        cast_record(object, klass)
       else
-        raise ArgumentError, "Don't know how to cast #{object.inspect}"
+        cast_record(object, klass)
       end
     end
 
